@@ -1,0 +1,15 @@
+{
+    "prefix": "",
+    "app": {
+        "name": "MEAN stack app (dev)",
+        "copyright": "Kari Heikkinen 2014",
+        "sessionKey": "mean-dev"
+    },
+    "db": "mongodb://localhost/mean-dev",
+    "appsec": {
+        "csrf": true,
+        "csp": false,
+        "p3p": false,
+        "xframe": "SAMEORIGIN"
+    }
+}

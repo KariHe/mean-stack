@@ -1,0 +1,21 @@
+<div class="tag-input-container">
+    <div class="tag-input ng-cloak" tabindex="-1" tagi-element-size="containerSize" ng-class="{'tag-input-focus': focused}" ng-init="focused=false;">
+        <!--Show defined tags-->
+        <div tagi-element-width-left="tagsSize">
+            <span class="tag" ng-repeat="item in tags track by $index">{{getTitle(item)}} <i class="fa fa-times tag-delete" ng-click="removeTag( $index );"></i></span>
+        </div>
+
+        <!--Input field-->
+        <input type="text" ng-model="inputText" ng-style="inputStyle" ng-focus="focused=true" ng-blur="focused=false"/>
+        <br/>
+    </div>
+    <!--Auto complete-->
+    <div class="auto-complete" ng-show="autoCompleteList.length">
+        <div class="item" ng-class="{ active: $index == selection }" ng-repeat="item in autoCompleteList | limitTo:autoCompleteSize" ng-click="$parent.addTag(item)">
+            <span ng-bind-html="getTitle(item) | boldtext:inputText"></span>
+        </div>
+    </div>
+
+    <!--<div ng-transclude></div>-->
+    <!--<pre>{{tags}}</pre>-->
+</div>

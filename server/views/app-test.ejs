@@ -1,0 +1,88 @@
+<% layout('layouts/main') -%>
+
+<% script( assetUrl('js/' + pkg.name + '.js' ) ) %>
+
+<% include includes/header.ejs %>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12"  data-ng-controller="IndexController">
+            <h2>This is angular demo application instance</h2>
+            <hr />
+
+            <div class="row col-md-12">
+                <h3>Basic angular input</h3>
+                <hr />
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 ng-cloak">
+                    <div class="input-group">
+                        <label class="input-group-addon" for="input1">Test controller input</label>
+                        <input class="form-control" name="input1" ng-model="input1" />
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <label>Input content:</label>
+                    <pre>{{ input1 }}</pre>
+                </div>
+            </div>
+
+            <div class="row col-md-12">
+                <h3>Tag input demo</h3>
+                <hr />
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 ng-cloak">
+                    <label>Free tags</label>
+                    <tags-input ng-model="textTags"></tags-input>
+                </div>
+                <div class="col-md-4">
+                    <label>Tags:</label>
+                    <pre>{{textTags | json}}</pre>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-md-8 ng-cloak">
+                    <label>Validation of tag input (no space allowed) and storing as object</label>
+                    <tags-input
+                        ng-model="objectTags" tag-title-field="title"
+                        on-add-tag="createTag" no-backspace-tag-delete></tags-input>
+                </div>
+                <div class="col-md-4">
+                    <label>Tags:</label>
+                    <pre>{{objectTags | json}}</pre>
+                </div>
+            </div>
+
+            <br/>
+
+            <div class="row">
+                <div class="col-md-8 ng-cloak">
+                    <label>Auto complete and only allow defined tags</label>
+                    <tags-input
+                        ng-model="tags3" tag-title-field="title"
+                        on-add-tag="addSelected"
+                        auto-complete="inputChange" auto-complete-size="10"
+                        ></tags-input>
+                </div>
+                <div class="col-md-4">
+                    <label>Allowed:</label>
+                    <pre><span data-ng-repeat="tag in allowedTags">{{tag.title}} </span></pre>
+
+                    <label>Tags:</label>
+                    <pre>{{tags3 | json}}</pre>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <hr />
+    <% include includes/footer.ejs %>
+</div>

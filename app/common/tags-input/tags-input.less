@@ -1,0 +1,86 @@
+
+.tag-input-container {
+  width: 100%;
+  position: relative;
+
+  .tag-input {
+    border: 1px solid @input-border;
+    background-color: @input-bg;
+    padding: 2px 3px 0px 0px;
+    display: inline-block;
+    width: 100%;
+    border-radius: @input-border-radius;
+
+    .tag {
+      border: @btn-primary-border;
+      color: @btn-primary-color;
+      background-color: @btn-primary-bg;
+      border-radius: @badge-border-radius;
+      padding: 2px 5px 2px 5px;
+      margin: 2px 2px;
+      float: left;
+      display: inline-block;
+      ox-sizing: border-box;
+
+      .tag-delete {
+        cursor: pointer;
+      }
+    }
+
+    input {
+      color: @input-color;
+      display: inline-block;
+      float: left;
+      margin: 2px 2px;
+      padding: 2px 0px 2px 0px;
+      border: 0px;
+    }
+
+    // Remove focus shadows from input (removes bootstrap/browser defaults)
+    input:focus {
+      border: 0px;
+      outline: 0px;
+      box-shadow: 0px;
+    }
+
+    // Remove focus shadows from div
+    &:focus {
+      outline: 0px;
+      box-shadow: 0px;
+    }
+
+    // Define custom focus class for div that is applied to div when input gets focus
+    &-focus {
+      @color: @input-border-focus;
+      @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+      border-color: @color;
+      outline: 0;
+      .box-shadow(~"inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px @{color-rgba}");
+    }
+  }
+
+  .auto-complete {
+    position: absolute;
+    display: block;
+    //margin-top: 5px;
+    border: 1px solid @input-border;
+    background-color: @input-bg;
+    width: 100%;
+    border-radius: @input-border-radius;
+    //z-index: 100;
+
+    .active {
+      color: @dropdown-link-active-color;
+      background-color: @dropdown-link-active-bg;
+      border-radius: 0;
+    }
+
+    div {
+      padding: 2px 2px 2px 2px;
+
+      &:hover {
+        .active;
+      }
+    }
+  }
+}
