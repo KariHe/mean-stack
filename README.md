@@ -29,9 +29,9 @@ Running
 
 Build assets and application components
 > grunt build
+
 And then start server
 > node server.js
-
 
 If developping then you should use Grunt task for it. It will build everything
  and starts the server, if something changes then server is restarted or 
@@ -57,7 +57,7 @@ Example, you have one application in mydomain.com/app1 and other running
 mydomain.com/app2. Both are separate node instance and you can use like nginx 
 as proxy to pass traffic to correct node instance ('/app1' and '/app2'). 
 
-I node configuration there is key 'prefix' that can be used to change node 
+In node configuration there is key 'prefix' that can be used to change node 
 instance URL path for that. If it is not defined all routes are configured
 under root ( http://localhost:3000/ ). If prefix is in configuration, then routes are defined under 
 that, example prefix 'meanstack' causes node routes under 
